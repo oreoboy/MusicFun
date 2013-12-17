@@ -26,6 +26,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
 import javax.sound.midi.ControllerEventListener;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
@@ -34,12 +35,12 @@ import javax.sound.midi.ShortMessage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-// ce programme joue une musique al�atoire,et affiche des rectangles pleins, en rythme.
+// Ce programme joue une musique al�atoire,et affiche des rectangles pleins, en rythme.
 public abstract class Lecteur {
-	static JFrame f = new JFrame("MusicFun");
-	static MonPanneau ml;
-	Sequencer sequenceur = null;
-	Sequence sequence = null;
+	private static JFrame f = new JFrame("MusicFun");
+	private static MonPanneau ml;
+	protected Sequencer sequenceur = null;
+	protected Sequence sequence = null;
 	
 	public void start() {
 		installerIHM();
