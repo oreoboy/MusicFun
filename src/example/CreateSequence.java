@@ -9,7 +9,11 @@ import CreationAlgo.Aleatoire;
 
 @SuppressWarnings("unused")
 public class CreateSequence extends Lecteur {
-
+	public static void main(String[] args) {
+		Lecteur creeSeq = new CreateSequence();
+		creeSeq.start();
+	}
+	
 	@Override
 	public void getSequence() {
 		try {

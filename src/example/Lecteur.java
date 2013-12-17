@@ -38,7 +38,7 @@ import javax.swing.JPanel;
 // Ce programme joue une musique al�atoire,et affiche des rectangles pleins, en rythme.
 public abstract class Lecteur {
 	private static JFrame f = new JFrame("MusicFun");
-	private static MonPanneau ml;
+	protected static MonPanneau ml;
 	protected Sequencer sequenceur = null;
 	protected Sequence sequence = null;
 	
