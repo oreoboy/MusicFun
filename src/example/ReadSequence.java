@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.swing.JFileChooser;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -33,7 +34,8 @@ public class ReadSequence extends Lecteur {
 			fileChooser.setApproveButtonText("Choisir");
 			
 			//Récupération du fichier
-			int returnVal = fileChooser.showDialog(ml, null);
+			JPanel pan = new JPanel();
+			int returnVal = fileChooser.showDialog(pan, null);
 	        if (returnVal == JFileChooser.APPROVE_OPTION) {
 	        	path = fileChooser.getSelectedFile();
 	        }
