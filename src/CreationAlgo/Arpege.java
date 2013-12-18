@@ -20,9 +20,9 @@ public class Arpege implements Algo {
 			for (int i = 0; i < 100; i+= 4) {
 				r = (int) ((Math.random() * 50) + 1);
 
-				piste.add(makeEvent(144,1,r,100,i));
-				piste.add(makeEvent(176,1,127,0,i));		
-				piste.add(makeEvent(128,1,r,100,i + 2));
+				piste.add(makeEvent(144,6,r,100,i));
+				piste.add(makeEvent(176,6,127,0,i));		
+				piste.add(makeEvent(128,6,r,100,i + 2));
 			}
 		} catch (InvalidMidiDataException e) {
 			e.printStackTrace();
