@@ -18,7 +18,7 @@ public class LecteurFichier extends Lecteur {
 	protected Sequence getSequence() {
 		Sequence sequence = null;
 		try {
-			//Récupération du fichier gr�ce � un JFileChooser
+			//Récupération du fichier grâce à un JFileChooser
 			JFileChooser fileChooser = new JFileChooser();
 			
 			//Ajout d'un filtre pour les fichiers midi
@@ -45,6 +45,4 @@ public class LecteurFichier extends Lecteur {
 		}
 		return sequence;
 	}
-
-	
 }

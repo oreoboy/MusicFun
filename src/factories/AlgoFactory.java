@@ -10,6 +10,7 @@ import creationAlgo.Algo;
 import creationAlgo.Arpege;
 
 public class AlgoFactory {
+	//Définition d'une map des différents type d'algo
 	private static Map<String, Algo> mapAlgo = new HashMap<String, Algo>();
 
 	static {
@@ -18,9 +19,11 @@ public class AlgoFactory {
 	}
 
 	public Algo getAlgo() throws Exception {
+		//Fenetre de choix de l'algo
 		Object[] possibleValues = { "Aléatoire", "Arpege" };
 		Object typeAlgo = JOptionPane.showInputDialog(null, "Choose one", "Input", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
 
+		//Création de l'algo
 		Algo algo;
 		algo = mapAlgo.get(typeAlgo);
 

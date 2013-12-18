@@ -10,6 +10,7 @@ public class LecteurCreation extends Lecteur {
 	protected Sequence getSequence() {
 		Algo algo = null;
 		try {
+			//Crée un algo qui permettra de renvoyer une séquence
 			algo = new AlgoFactory().getAlgo();
 			sequenceur.setTempoInBPM(200);
 		} catch (Exception ex) {

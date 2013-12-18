@@ -31,15 +31,21 @@ public abstract class Lecteur {
 	protected Sequencer sequenceur = null;
 	protected Sequence sequence = null;
 	
-	// template/Factory Method
+	// Template/Factory Method
 	public void start() {
 		try {
+			/*
+			 * On défine la "recette" à suivre ici
+			 * 1/ On crée un séquenceur qu'on ouvre
+			 * 2/ On récupère une séquence pour le séquenceur 
+			 * 3/ On lance le séquenceur
+			 */
 			this.sequenceur = MidiSystem.getSequencer();
 			this.sequenceur.open();
 			
-			sequence = getSequence();  // définie ds classes dérivées
-			
+			sequence = getSequence();  // Définie ds classes dérivées
 			sequenceur.setSequence(sequence);
+			
 			this.sequenceur.start();
 		} catch (Exception ex) {
 			ex.printStackTrace();
