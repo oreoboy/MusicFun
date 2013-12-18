@@ -13,10 +13,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class ReadSequence extends Lecteur {
 	private File path = null;
 	
-	public static void main(String[] args) {
-		/*
-		 * Main pour le lecteur Reader
-		 */
+	@Override
+	public void lancer() {
         Lecteur readSeq = new ReadSequence();
         readSeq.start();
 	}
@@ -24,7 +22,7 @@ public class ReadSequence extends Lecteur {
 	@Override
 	public void getSequence() {
 		try {
-			//Rï¿½cupï¿½ration du fichier grï¿½ce ï¿½ un JFileChooser
+			//Récupération du fichier grâce à un JFileChooser
 			JFileChooser fileChooser = new JFileChooser();
 			
 			//Ajout d'un filtre pour les fichiers midi
@@ -32,7 +30,6 @@ public class ReadSequence extends Lecteur {
 			fileChooser.addChoosableFileFilter(filter);
 			fileChooser.setFileFilter(filter);
 			fileChooser.setApproveButtonText("Choisir");
-			
 
 			//Récupération du fichier
 			JPanel pan = new JPanel();

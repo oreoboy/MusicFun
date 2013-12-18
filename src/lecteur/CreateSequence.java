@@ -12,20 +12,25 @@ import factories.AlgoFactory;
 
 @SuppressWarnings("unused")
 public class CreateSequence extends Lecteur {
-	
 	private Algo algo;
 	
-	public static void main(String[] args) throws Exception {
-		CreateSequence creeSeq = new CreateSequence();
-		
-		Object[] possibleValues = { "Aleatoire", "Arpege"};
-		Object selectedValue = JOptionPane.showInputDialog(null, "Choose one", "Input",JOptionPane.INFORMATION_MESSAGE, null,possibleValues, possibleValues[0]);
-		
-		Algo algo = new AlgoFactory().getAlgo(selectedValue.toString());
-		
-		creeSeq.setAlgo(algo);
-		
-		creeSeq.start();
+	@Override
+	public void lancer() {
+		try {
+			CreateSequence creeSeq = new CreateSequence();
+			
+			Object[] possibleValues = { "Aleatoire", "Arpege"};
+			Object selectedValue = JOptionPane.showInputDialog(null, "Choose one", "Input",JOptionPane.INFORMATION_MESSAGE, null,possibleValues, possibleValues[0]);
+			
+			Algo algo;
+			algo = new AlgoFactory().getAlgo(selectedValue.toString());
+			
+			creeSeq.setAlgo(algo);
+			
+			creeSeq.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -38,14 +43,4 @@ public class CreateSequence extends Lecteur {
 			ex.printStackTrace();
 		}
 	}
-
-	public Algo getAlgo() {
-		return algo;
-	}
-
-	public void setAlgo(Algo algo) {
-		this.algo = algo;
-	}
-	
-	
 }

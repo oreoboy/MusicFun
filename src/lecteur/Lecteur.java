@@ -26,10 +26,15 @@ import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
+import creationAlgo.Algo;
+
 // Ce programme joue une musique al�atoire,et affiche des rectangles pleins, en rythme.
 public abstract class Lecteur {
 	protected Sequencer sequenceur = null;
 	protected Sequence sequence = null;
+	private Algo algo = null;
+
+	public abstract void lancer();
 	
 	public void start() {
 		try {
@@ -47,5 +52,13 @@ public abstract class Lecteur {
 	}
 	
 	public abstract void getSequence();
+	
+	public Algo getAlgo() {
+		return algo;
+	}
+
+	public void setAlgo(Algo algo) {
+		this.algo = algo;
+	}
 } 
 
