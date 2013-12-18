@@ -1,8 +1,8 @@
 package factories;
 
-import CreationAlgo.Aleatoire;
-import CreationAlgo.Algo;
-import CreationAlgo.Arpege;
+import creationAlgo.Aleatoire;
+import creationAlgo.Algo;
+import creationAlgo.Arpege;
 
 public class AlgoFactory {
 

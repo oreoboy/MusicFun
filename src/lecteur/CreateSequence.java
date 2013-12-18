@@ -1,4 +1,4 @@
-package example;
+package lecteur;
 
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.Sequence;
@@ -6,9 +6,9 @@ import javax.sound.midi.ShortMessage;
 import javax.sound.midi.Track;
 import javax.swing.JOptionPane;
 
+import creationAlgo.Aleatoire;
+import creationAlgo.Algo;
 import factories.AlgoFactory;
-import CreationAlgo.Aleatoire;
-import CreationAlgo.Algo;
 
 @SuppressWarnings("unused")
 public class CreateSequence extends Lecteur {

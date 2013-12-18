@@ -1,4 +1,4 @@
-package example;
+package lecteur;
 /**
  * @author Kathy Sierra, Bert Bates : "Java T�te la Premi�re" 
  * Mise en forme des commentaires Fran�oise PERRIN

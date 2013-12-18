@@ -1,4 +1,4 @@
-package CreationAlgo;
+package creationAlgo;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiEvent;
