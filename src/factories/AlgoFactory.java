@@ -3,31 +3,28 @@ package factories;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
+import creationAlgo.Aleatoire;
 import creationAlgo.Algo;
+import creationAlgo.Arpege;
 
 public class AlgoFactory {
-	
-	private static Map<String, String> mapAlgo = new HashMap<String, String>();
-	
+
+	private static Map<String, Algo> mapAlgo = new HashMap<String, Algo>();
+
 	static {
-		mapAlgo.put("Aléatoire", "Aleatoire");
-		mapAlgo.put("Arpege", "Arpege");
+		mapAlgo.put("Aléatoire", new Aleatoire());
+		mapAlgo.put("Arpege", new Arpege());
 	}
 
-	public Algo getAlgo(String typeAlgo) throws Exception {
+	public Algo getAlgo() throws Exception {
+		Object[] possibleValues = { "Aléatoire", "Arpege" };
+		Object typeAlgo = JOptionPane.showInputDialog(null, "Choose one", "Input", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
+
 		Algo algo;
-//		if ("Aleatoire".equals(typeAlgo)) {
-//			algo = new Aleatoire();
-//		} else if ("Arpege".equals(typeAlgo)) {
-//			algo = new Arpege();
-//		} else {
-//			throw new Exception("Impossible de créer un " + typeAlgo);
-//		}
-		
-		algo = (Algo) Class.forName(mapAlgo.get(typeAlgo)).newInstance();
-		
-		
-		
+		algo = mapAlgo.get(typeAlgo);
+
 		return algo;
 	}
 
