@@ -23,7 +23,7 @@ public class ReadSequence extends Lecteur {
 	@Override
 	public void getSequence() {
 		try {
-			//Récupération du fichier grâce à un JFileChooser
+			//Rï¿½cupï¿½ration du fichier grï¿½ce ï¿½ un JFileChooser
 			JFileChooser fileChooser = new JFileChooser();
 			
 			//Ajout d'un filtre pour les fichiers midi
@@ -32,13 +32,13 @@ public class ReadSequence extends Lecteur {
 			fileChooser.setFileFilter(filter);
 			fileChooser.setApproveButtonText("Choisir");
 			
-			//Récupération du fichier
+			//Rï¿½cupï¿½ration du fichier
 			int returnVal = fileChooser.showDialog(ml, null);
 	        if (returnVal == JFileChooser.APPROVE_OPTION) {
 	        	path = fileChooser.getSelectedFile();
 	        }
 	        
-	        //Récupération de la musique
+	        //Rï¿½cupï¿½ration de la musique
 			if(path != null) {
 				sequenceur.setSequence(MidiSystem.getSequence(path));
 			}
