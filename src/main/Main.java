@@ -1,21 +1,34 @@
 package main;
 
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 import lecteur.Lecteur;
 import factories.LecteurFactory;
 
 public class Main {
-
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		Object[] possibleValues = {"Creation", "Lecture"};
-		Object selectedValue = JOptionPane.showInputDialog(null, "Choose one", "Input",JOptionPane.INFORMATION_MESSAGE, null,possibleValues, possibleValues[0]);
+		//Création du scanner
+		String str = "";
+		Scanner sc = new Scanner(System.in);
 		
 		try {
-			Lecteur lecteur = new LecteurFactory().getLecteur(selectedValue.toString());
-			lecteur.lancer();
+			//Lancement du lecteur
+			Lecteur lecteur = new LecteurFactory().getLecteur();
+			lecteur.start();
+			
+			//Arret du lecteur
+			while(!str.equals("0")) {
+				System.out.println("Tapez 0 pour arreter");
+				str = sc.nextLine();
+				
+				if(str.equals("0")) {
+					lecteur.stop();
+				}
+			}
+			
+			System.out.println("Fin de la chanson");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

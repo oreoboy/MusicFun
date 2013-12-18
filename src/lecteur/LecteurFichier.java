@@ -5,24 +5,20 @@ import java.io.IOException;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequence;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class ReadSequence extends Lecteur {
+public class LecteurFichier extends Lecteur {
 	private File path = null;
 	
 	@Override
-	public void lancer() {
-        Lecteur readSeq = new ReadSequence();
-        readSeq.start();
-	}
-	
-	@Override
-	public void getSequence() {
+	protected Sequence getSequence() {
+		Sequence sequence = null;
 		try {
-			//Récupération du fichier grâce à un JFileChooser
+			//RÃ©cupÃ©ration du fichier grï¿½ce ï¿½ un JFileChooser
 			JFileChooser fileChooser = new JFileChooser();
 			
 			//Ajout d'un filtre pour les fichiers midi
@@ -31,21 +27,24 @@ public class ReadSequence extends Lecteur {
 			fileChooser.setFileFilter(filter);
 			fileChooser.setApproveButtonText("Choisir");
 
-			//Récupération du fichier
+			//RÃ©cupÃ©ration du fichier
 			JPanel pan = new JPanel();
 			int returnVal = fileChooser.showDialog(pan, null);
 	        if (returnVal == JFileChooser.APPROVE_OPTION) {
 	        	path = fileChooser.getSelectedFile();
 	        }
 	        
-	        //Rï¿½cupï¿½ration de la musique
+	        //RÃ©cupÃ©ration de la musique
 			if(path != null) {
-				sequenceur.setSequence(MidiSystem.getSequence(path));
+				sequence = (MidiSystem.getSequence(path));
 			}
 		} catch (InvalidMidiDataException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return sequence;
 	}
+
+	
 }

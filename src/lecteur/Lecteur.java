@@ -26,39 +26,34 @@ import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
-import creationAlgo.Algo;
-
 // Ce programme joue une musique al�atoire,et affiche des rectangles pleins, en rythme.
 public abstract class Lecteur {
 	protected Sequencer sequenceur = null;
 	protected Sequence sequence = null;
-	private Algo algo = null;
-
-	public abstract void lancer();
 	
+	// template/Factory Method
 	public void start() {
 		try {
-			sequenceur = MidiSystem.getSequencer();
-			sequenceur.open();
+			this.sequenceur = MidiSystem.getSequencer();
+			this.sequenceur.open();
 			
-			getSequence();
-
-			sequenceur.start();
-		} catch (Exception ex) {ex.printStackTrace();}
-	} // fin de la m�thode go()
+			sequence = getSequence();  // définie ds classes dérivées
+			
+			sequenceur.setSequence(sequence);
+			this.sequenceur.start();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 
 	public void stop() {
-		sequenceur.stop();
+		this.sequenceur.stop();
 	}
 	
-	public abstract void getSequence();
+	protected abstract Sequence getSequence();
 	
-	public Algo getAlgo() {
-		return algo;
-	}
-
-	public void setAlgo(Algo algo) {
-		this.algo = algo;
+	protected void setSequence(Sequence sequence) {
+		this.sequence=sequence;		
 	}
 } 
 
