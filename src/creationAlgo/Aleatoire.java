@@ -9,7 +9,7 @@ import javax.sound.midi.Track;
 public class Aleatoire implements Algo {
 	private Track piste;
 	
-	public Sequence creerAlgo() {
+	public Sequence creerSequence() {
 		Sequence sequence = null;
 		
 		try {

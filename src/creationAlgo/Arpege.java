@@ -6,15 +6,13 @@ import javax.sound.midi.Sequence;
 import javax.sound.midi.ShortMessage;
 import javax.sound.midi.Track;
 
-public class Arpege implements Algo {
-	private Track piste;
-	
-	public Sequence creerAlgo() {
+public class Arpege implements Algo {	
+	public Sequence creerSequence() {
 		Sequence sequence = null;
 		
 		try {
 			sequence = new Sequence(Sequence.PPQ, 4);
-			piste = sequence.createTrack();
+			Track piste = sequence.createTrack();
 			
 			int r = 0;
 			for (int i = 0; i < 100; i+= 4) {
