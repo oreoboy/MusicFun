@@ -61,5 +61,13 @@ public abstract class Lecteur {
 	protected void setSequence(Sequence sequence) {
 		this.sequence=sequence;		
 	}
+
+	public Sequencer getSequenceur() {
+		return sequenceur;
+	}
+
+	public void setSequenceur(Sequencer sequenceur) {
+		this.sequenceur = sequenceur;
+	}
 } 
 
