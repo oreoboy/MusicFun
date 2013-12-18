@@ -10,7 +10,7 @@ public class AlgoFactory {
 		Algo algo;
 		if ("Aleatoire".equals(typeAlgo)) {
 			algo = new Aleatoire();
-		} else if ("arpege".equals(typeAlgo)) {
+		} else if ("Arpege".equals(typeAlgo)) {
 			algo = new Arpege();
 		} else {
 			throw new Exception("Impossible de créer un " + typeAlgo);
