@@ -22,18 +22,9 @@ package example;
  * Un �v�nement MIDI pourrait �galement dire par exemple : � Change l�instrument courant en fl�te �.
  */
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
-import javax.sound.midi.ControllerEventListener;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
-import javax.sound.midi.ShortMessage;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 // Ce programme joue une musique al�atoire,et affiche des rectangles pleins, en rythme.
 public abstract class Lecteur {

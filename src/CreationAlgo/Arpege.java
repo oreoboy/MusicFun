@@ -6,7 +6,7 @@ import javax.sound.midi.Sequence;
 import javax.sound.midi.ShortMessage;
 import javax.sound.midi.Track;
 
-public class Aleatoire implements Algo {
+public class Arpege implements Algo {
 	private Track piste;
 	
 	public Sequence creerAlgo() {
