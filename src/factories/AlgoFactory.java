@@ -10,7 +10,6 @@ import creationAlgo.Algo;
 import creationAlgo.Arpege;
 
 public class AlgoFactory {
-
 	private static Map<String, Algo> mapAlgo = new HashMap<String, Algo>();
 
 	static {
