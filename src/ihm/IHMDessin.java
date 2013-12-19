@@ -22,9 +22,9 @@ public class IHMDessin extends JPanel {
 			e.printStackTrace();
 		}
 		
-		JFrame f = new JFrame("MusicFun");
+		JFrame f = new JFrame("MusicFun");		
 		f.setContentPane(this);
-		f.setBounds(30,30, 300,300);
+		f.setBounds(75,75, 350,350);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 		this.repaint();

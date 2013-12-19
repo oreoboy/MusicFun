@@ -16,7 +16,6 @@ public class Controller implements ControllerEventListener{
 		try {
 			this.lecteurDecore = new LecteurDecore(new LecteurFactory().getLecteur());
 			this.ihmDessin = new IHMDessin();
-//			lecteurDecore.addControllerEventListener(this, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -25,7 +24,6 @@ public class Controller implements ControllerEventListener{
 	public Controller(LecteurDecore lecteurDecore, IHMDessin ihmDessin) {
 		this.lecteurDecore = lecteurDecore;
 		this.ihmDessin = ihmDessin;
-//		lecteurDecore.addControllerEventListener(this, null);
 	}
 	
 	public void addControlEventListener() {		
