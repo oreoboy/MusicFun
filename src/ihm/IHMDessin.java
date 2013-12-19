@@ -1,18 +1,27 @@
 package ihm;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import dessinerIHM.DessinerIHM;
+import factories.DessinerFactory;
 
 
 @SuppressWarnings("serial")
 public class IHMDessin extends JPanel {
 	private boolean msg = false;
 	private boolean firstTime = true;
+	private DessinerIHM dessinerIHM = null;
 	
 	public IHMDessin() {
+		try {
+			setDessinerIHM(new DessinerFactory().getDessin());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		JFrame f = new JFrame("MusicFun");
 		f.setContentPane(this);
 		f.setBounds(30,30, 300,300);
@@ -28,19 +37,7 @@ public class IHMDessin extends JPanel {
 		
 		if (msg) {
 			firstTime = false;
-			int r = (int) (Math.random() * 250);
-			int gr = (int) (Math.random() * 250);
-			int b = (int) (Math.random() * 250);
-
-			g.setColor(new Color(r,gr,b));
-
-			int ht = (int) ((Math.random() * 120) + 10);
-			int width = (int) ((Math.random() * 120) + 10);
-
-			int x = (int) ((Math.random() * 40) + 10);
-			int y = (int) ((Math.random() * 40) + 10);
-
-			g.fillRect(x, y, ht, width);
+			getDessinerIHM().dessinerIHM(g);
 			msg = false;
 		}
 	}
@@ -51,5 +48,13 @@ public class IHMDessin extends JPanel {
 
 	public void setMsg(boolean msg) {
 		this.msg = msg;
+	}
+
+	public DessinerIHM getDessinerIHM() {
+		return dessinerIHM;
+	}
+
+	public void setDessinerIHM(DessinerIHM dessinerIHM) {
+		this.dessinerIHM = dessinerIHM;
 	}
 }
