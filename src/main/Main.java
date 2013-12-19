@@ -2,9 +2,7 @@ package main;
 
 import java.util.Scanner;
 
-import lecteur.Lecteur;
-import lecteur.LecteurDecore;
-import factories.LecteurFactory;
+import controler.Controller;
 
 public class Main {
 	@SuppressWarnings("resource")
@@ -12,11 +10,11 @@ public class Main {
 		//Création du scanner
 		String str = "";
 		Scanner sc = new Scanner(System.in);
+		Controller controller = new Controller();
 		
 		try {
-			//Lancement du lecteur
-			Lecteur lecteur = new LecteurDecore(new LecteurFactory().getLecteur());
-			lecteur.start();
+			controller.getLecteurDecore().start();
+			controller.addControlEventListener();
 			
 			//Arret du lecteur
 			while(!str.equals("0")) {
@@ -24,7 +22,7 @@ public class Main {
 				str = sc.nextLine();
 				
 				if(str.equals("0")) {
-					lecteur.stop();
+					controller.getLecteurDecore().stop();
 				}
 			}
 		} catch (Exception e) {
