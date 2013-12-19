@@ -50,11 +50,11 @@ public class IHMDessin extends JPanel {
 		this.msg = msg;
 	}
 
-	public DessinerIHM getDessinerIHM() {
+	private DessinerIHM getDessinerIHM() {
 		return dessinerIHM;
 	}
 
-	public void setDessinerIHM(DessinerIHM dessinerIHM) {
+	private void setDessinerIHM(DessinerIHM dessinerIHM) {
 		this.dessinerIHM = dessinerIHM;
 	}
 }

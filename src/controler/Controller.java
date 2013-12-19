@@ -21,6 +21,15 @@ public class Controller implements ControllerEventListener{
 		}
 	}
 	
+	public void start() {
+		this.lecteurDecore.start();
+		addControlEventListener();
+	}
+
+	public void stop() {
+		this.lecteurDecore.stop();
+	}
+	
 	public Controller(LecteurDecore lecteurDecore, IHMDessin ihmDessin) {
 		this.lecteurDecore = lecteurDecore;
 		this.ihmDessin = ihmDessin;

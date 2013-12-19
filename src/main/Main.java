@@ -13,8 +13,7 @@ public class Main {
 		Controller controller = new Controller();
 		
 		try {
-			controller.getLecteurDecore().start();
-			controller.addControlEventListener();
+			controller.start();
 			
 			//Arret du lecteur
 			while(!str.equals("0")) {
@@ -22,7 +21,7 @@ public class Main {
 				str = sc.nextLine();
 				
 				if(str.equals("0")) {
-					controller.getLecteurDecore().stop();
+					controller.stop();
 				}
 			}
 		} catch (Exception e) {
