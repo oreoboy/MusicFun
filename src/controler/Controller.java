@@ -23,6 +23,7 @@ public class Controller implements ControllerEventListener{
 				
 				try {
 					controller.getLecteurDecore().start();
+					controller.addControlEventListener();
 					
 					//Arret du lecteur
 					while(!str.equals("0")) {
@@ -43,7 +44,7 @@ public class Controller implements ControllerEventListener{
 		try {
 			this.lecteurDecore = new LecteurDecore(new LecteurFactory().getLecteur());
 			this.ihmDessin = new IHMDessin();
-			lecteurDecore.addControllerEventListener(this, null);
+//			lecteurDecore.addControllerEventListener(this, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -52,6 +53,10 @@ public class Controller implements ControllerEventListener{
 	public Controller(LecteurDecore lecteurDecore, IHMDessin ihmDessin) {
 		this.lecteurDecore = lecteurDecore;
 		this.ihmDessin = ihmDessin;
+//		lecteurDecore.addControllerEventListener(this, null);
+	}
+	
+	public void addControlEventListener() {		
 		lecteurDecore.addControllerEventListener(this, null);
 	}
 

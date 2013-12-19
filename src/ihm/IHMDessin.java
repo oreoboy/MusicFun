@@ -10,17 +10,24 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class IHMDessin extends JPanel {
 	private boolean msg = false;
+	private boolean firstTime = true;
 	
 	public IHMDessin() {
 		JFrame f = new JFrame("MusicFun");
 		f.setContentPane(this);
 		f.setBounds(30,30, 300,300);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
+		this.repaint();
 	}
 	
 	public void paintComponent(Graphics g) {
+		if(firstTime) {
+			super.paintComponent(g);
+		}
+		
 		if (msg) {
-
+			firstTime = false;
 			int r = (int) (Math.random() * 250);
 			int gr = (int) (Math.random() * 250);
 			int b = (int) (Math.random() * 250);
@@ -35,7 +42,7 @@ public class IHMDessin extends JPanel {
 
 			g.fillRect(x, y, ht, width);
 			msg = false;
-		} 
+		}
 	}
 
 	public boolean isMsg() {

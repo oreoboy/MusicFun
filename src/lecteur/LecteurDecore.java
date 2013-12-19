@@ -20,13 +20,6 @@ public class LecteurDecore extends Lecteur{
 	}
 	
 	public void addControllerEventListener(ControllerEventListener cont, int[] controllers) {
-		if(controllers == null) {
-			controllers = new int[128];
-			for(int i = 0 ; i <= 127 ; i++) {
-				controllers[i] = i;
-			}
-		}
-		
 		this.lecteur.getSequenceur().addControllerEventListener(cont, controllers);
 	}
 
