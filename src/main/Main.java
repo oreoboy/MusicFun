@@ -3,6 +3,7 @@ package main;
 import java.util.Scanner;
 
 import lecteur.Lecteur;
+import lecteur.LecteurDecore;
 import factories.LecteurFactory;
 
 public class Main {
@@ -14,7 +15,7 @@ public class Main {
 		
 		try {
 			//Lancement du lecteur
-			Lecteur lecteur = new LecteurFactory().getLecteur();
+			Lecteur lecteur = new LecteurDecore(new LecteurFactory().getLecteur());
 			lecteur.start();
 			
 			//Arret du lecteur
@@ -26,10 +27,9 @@ public class Main {
 					lecteur.stop();
 				}
 			}
-			
-			System.out.println("Fin de la chanson");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("Fin de la chanson");
 	}
 }
