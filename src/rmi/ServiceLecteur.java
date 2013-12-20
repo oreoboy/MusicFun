@@ -14,12 +14,12 @@ public class ServiceLecteur implements Service {
 	
 	@Override
 	public void lancerService() {
+		System.out.println("coucou");
 		Controller controller = new Controller();
 		controller.start();
 	}
 	
 	public JPanel getIHM() {
-
 	       JPanel panneau = new JPanel();
 	       monPanneau = new JPanel();
 	       JButton boutonJouer = new JButton("Jouer");
@@ -33,6 +33,6 @@ public class ServiceLecteur implements Service {
 		public void actionPerformed(ActionEvent ev) {
 			ServiceLecteur serv = new ServiceLecteur();
 			serv.lancerService();
-		} // fin de actionPerformed()
-	} // fin de la classe interne
+		}
+	}
 }

@@ -17,7 +17,7 @@ public class ServeurServicesImpl extends UnicastRemoteObject implements
 
 	private void installerServices() {
 		listeServices = new HashMap<String, Service>();
-		listeServices.put("Vidéo musique", new ServiceLecteur());
+		listeServices.put("Musique", new ServiceLecteur());
 	}
 
 	@Override

@@ -1,19 +1,22 @@
-package rmi;
+package annexe2;
+/**
+ * @author Kathy Sierra, Bert Bates : "Java T�te la Premi�re"  * 
+ * Mise en forme des commentaires Fran�oise PERRIN
+ */
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.rmi.Naming;
+import java.awt.*;
+import javax.swing.*;
+import java.rmi.*;
 
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.event.*;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
+
 public class Navigateur {
+
 	JPanel panneau;
 	JComboBox listeServices;
 	ServeurServices serveur;
+
 
 	public void construireIHM() {
 		JFrame cadre = new JFrame("Navigateur RMI");
@@ -27,8 +30,9 @@ public class Navigateur {
 
 		listeServices.addActionListener(new EcouteMaListe());
 
-		cadre.setSize(500, 500);
+		cadre.setSize(500,500);
 		cadre.setVisible(true);
+
 	}
 
 	void chargerService(Object serviceChoisi) {
@@ -39,51 +43,59 @@ public class Navigateur {
 			panneau.add(svc.getIHM());
 			panneau.validate();
 			panneau.repaint();
-		} catch (Exception ex) {
+		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
 	}
-
 	/*
-	 * Le client doit accéder à l'objet souche, puisque c'est sur cette entité
-	 * qu'il va appeler les méthodes.
+	 * Le client doit acc�der � l'objet souche, 
+	 * puisque c'est sur cette entit� qu'il va appeler les m�thodes.
 	 * 
-	 * le client consulte le registre RMI :
-	 * Naming.lookup("rmi://127.0.0.1/ServeurServices"); "ServeurServices" est
-	 * le nom sous lequel le service a été enregistré
+	 * le client consulte le registre RMI : Naming.lookup("rmi://127.0.0.1/ServeurServices");
+	 * "ServeurServices" est le nom sous lequel le service a �t� enregistr�
 	 * 
-	 * le registre RMI retourne l'objet souche comme valeur de retour de la
-	 * méthode lookup() et RMI le désérialise automatiquement. la classe de la
-	 * souche (générée) doit être sur le client.
+	 * le registre RMI retourne l'objet souche comme valeur de retour de la m�thode lookup()
+	 * et RMI le d�s�rialise automatiquement. la classe de la souche (g�n�r�e) doit �tre sur le client.
 	 * 
-	 * le client invoque une méthode sur la souche comme si elle était le
-	 * service réel : "serveur.getListeServices()"
+	 * le client invoque une m�thode sur la souche comme si elle �tait le service r�el :
+	 * "serveur.getListeServices()"
 	 */
 	Object[] getListeServices() {
+
 		Object obj = null;
 		Object[] services = null;
-
+		
 		try {
+			
 			obj = Naming.lookup("rmi://127.0.0.1/ServeurServices");
-			// obj = Naming.lookup("ServeurServices");
-		} catch (Exception ex) {
+//			obj = Naming.lookup("ServeurServices");
+			
+		}
+		catch(Exception ex) {
 			ex.printStackTrace();
 		}
-
+		
+		
 		serveur = (ServeurServices) obj;
 
+
 		try {
+
 			services = serveur.getListeServices();
-		} catch (Exception ex) {
+
+		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
 		return services;
+
 	}
 
 	class EcouteMaListe implements ActionListener {
 		public void actionPerformed(ActionEvent ev) {
-			// accéder au service sélectionné
-			Object selection = listeServices.getSelectedItem();
+
+			// acc�der au service s�lectionn�
+
+			Object selection =  listeServices.getSelectedItem();
 			chargerService(selection);
 		}
 	}
@@ -92,3 +104,5 @@ public class Navigateur {
 		new Navigateur().construireIHM();
 	}
 }
+
+
